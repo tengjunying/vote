@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0, minimal-ui">
+	<title>投票首页</title>
+	<link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
+  <link rel="stylesheet" type="text/css" href="/stylesheets/dropload.css">
+</head>
+<body>
+	<div class="content">
+		<div class="header">
+      <div class="sign_in">
+        <span>用户登入</span>
+      </div>
+			<div class="rule">
+        <a href="/vote/rule">
+          <span>活动规则</span>
+        </a>
+			</div>
+			<div class="title tada">
+				<img src="/images/title.png" alt="">
+			</div>	
+			<div class="register">
+          <a href="/vote/register">
+             我要报名
+          </a>
+			</div>
+			<div class="search">
+				<input type="text" placeholder="请输入用户名称或编号">
+				<span>搜索</span>
+			</div>
+		</div>
+        <div class="lists">
+            <div class="coming-box">
+                <ul class="coming">
+<!--                    <li>        
+                      <div class="head">
+                         <a href="/vote/detail">
+                            <img src="/images/girl.png" alt="">
+                         </a>
+                      </div>
+                      <div class="up">
+                         <div class="vote">
+                            <span>10票</span>
+                         </div>
+                         <div class="btn">
+                            投TA一票
+                         </div>
+                      </div>
+                      <div class="descr">
+                         <a href="/vote/detail">
+                          <div>
+                            <span>江疏影</span>
+                            <span>|</span>
+                            <span>编号#10</span>
+                          </div>
+                          <p>谁比我美？</p>
+                         </a>
+                      </div>     
+                   </li> -->
+                </ul>
+            </div>
+        </div>
+	</div>
+  <div class="mask">
+    <div class="submit_info">
+      <div class="sub_title">
+        <span>请输入用户信息进行验证</span>
+      </div>
+      <div class="reitems">
+        <input type="text" class="reinput usernum" placeholder="请填写用户编号">
+      </div>
+      <div class="reitems">
+        <input type="text" class="reinput user_password" placeholder="请填写用户密码">
+      </div>
+      <div class="rebtn subbtn btn">
+        提交
+      </div>
+      <div class="no_info">
+        <a href="/vote/register">
+          <span>没有用户名和编号？</span>
+          <span>请先进行报名</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</body>
+<script src="/javascripts/zepto.min.js"></script>
+<script src="/javascripts/dropload.js"></script>
+<script src="/javascripts/vote.js"></script>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0, minimal-ui">
+	<title>投票首页</title>
+	<link rel="stylesheet" href="static/css/style.css">
+</head>
+<body>
+	<div class="content">
+		<div class="header">
+			<div class="rule">
+				<span>活动规则</span>
+			</div>
+			<div class="title tada">
+				<img src="static/images/title.png" alt="">
+			</div>	
+			<div class="register">
+            <a href="register.html">
+               我要报名
+            </a>
+			</div>
+			<div class="search">
+				<input type="text" placeholder="请输入用户名称">
+				<span>搜索</span>
+			</div>
+		</div>
+        <div class="lists">
+            <div class="coming-box">
+                <ul class="coming">
+                    <li>        
+                        <div class="head">
+                           <a href="detail.html">
+                              <img src="static/images/girl.png" alt="">
+                           </a>
+                        </div>
+                        <div class="up">
+                           <div class="vote">
+                              <span>10票</span>
+                           </div>
+                           <div class="btn">
+                              投TA一票
+                           </div>
+                        </div>
+                        <div class="descr">
+                           <a href="detail.html">
+                             <div>
+                                <span>江疏影</span>
+                                <span>|</span>
+                                <span>编号#10</span>
+                              </div>
+                              <p>谁比我美？</p>
+                           </a>
+                        </div>     
+                    </li>
+               		<li>
+               		    <div class="head">
+               		        <a href="#"><img src="static/images/boy.png" alt=""></a>
+               		    </div>
+               		    <div class="up">
+               		    	<div class="vote">
+               		    		<span>10票</span>
+               		    	</div>
+               		    	<div class="btn">
+               		    		投TA一票
+               		    	</div>
+               		    </div>
+               		    <div class="descr">
+               		        <div>
+                               <span>胡歌</span>
+                               <span>|</span>
+                               <span>编号#11</span>
+                             </div>
+               		        <p>谁比我美？</p>
+               		    </div>
+               		</li>
+                </ul>
+            </div>
+        </div>
+	</div>
+  <div class="mask">
+    <div class="submit_info">
+      <div class="sub_title">
+        <span>请输入用户信息进行验证</span>
+      </div>
+      <div class="reitems">
+        <input type="text" class="reinput usernum" placeholder="请填写用户编号">
+      </div>
+      <div class="reitems">
+        <input type="text" class="reinput user_password" placeholder="请填写用户密码">
+      </div>
+      <div class="rebtn subbtn btn">
+        提交
+      </div>
+      <div class="no_info">
+        <a href="/vote/register">
+          <span>没有用户名和编号？</span>
+          <span>请先进行报名</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

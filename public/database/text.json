@@ -1,0 +1,169 @@
+[{
+	"username": "卡卡西",
+	"mobile": "18289742007",
+	"descrption": "世界只有没有实力的人，才整天希望别人赞赏",
+	"gender": "boy",
+	"head_icon": "/images/boy.png",
+	"id": 4,
+	"vote": 6,
+	"rank": 1,
+	"vfriend": [{
+		"voterId": 10
+	}, {
+		"voterId": 6
+	}, {
+		"voterId": 9
+	}, {
+		"voterId": 1
+	}, {
+		"voterId": 2
+	}, {
+		"voterId": 3
+	}],
+	"vote_times": 1,
+	"password": "123"
+}, {
+	"username": "鸣人",
+	"head_icon": "/images/boy.png",
+	"gender": "boy",
+	"mobile": 18289742007,
+	"descrption": "说到做到，这就是我的忍道",
+	"id": 1,
+	"vote": 5,
+	"rank": 2,
+	"vfriend": [{
+		"voterId": 1
+	}, {
+		"voterId": 10
+	}, {
+		"voterId": 4
+	}, {
+		"voterId": 5
+	}, {
+		"voterId": 6
+	}],
+	"vote_times": 4,
+	"password": "123"
+}, {
+	"username": "小樱",
+	"mobile": "18289742007",
+	"descrption": "我也不会输给你们的",
+	"gender": "girl",
+	"head_icon": "/images/girl.png",
+	"id": 3,
+	"vote": 3,
+	"rank": 3,
+	"vfriend": [{
+		"voterId": 1
+	}, {
+		"voterId": 5
+	}, {
+		"voterId": 6
+	}],
+	"vote_times": 2,
+	"password": "123"
+}, {
+	"username": "佐助",
+	"mobile": "18289742007",
+	"descrption": "总有一天我会打败那个男人",
+	"gender": "boy",
+	"head_icon": "/images/boy.png",
+	"id": 2,
+	"vote": 2,
+	"rank": 4,
+	"vfriend": [{
+		"voterId": 1
+	}, {
+		"voterId": 10
+	}],
+	"vote_times": 2,
+	"password": "123"
+}, {
+	"username": "test1",
+	"mobile": "18289742007",
+	"descrption": "hello",
+	"gender": "boy",
+	"head_icon": "/images/boy.png",
+	"id": 6,
+	"vote": 2,
+	"rank": 4,
+	"vfriend": [{
+		"voterId": 10
+	}, {
+		"voterId": 9
+	}],
+	"vote_times": 5,
+	"password": "123"
+}, {
+	"username": "test3",
+	"mobile": "18289742007",
+	"descrption": "hello",
+	"gender": "boy",
+	"password": "123",
+	"head_icon": "/images/boy.png",
+	"id": 8,
+	"vote": 2,
+	"rank": 4,
+	"vfriend": [{
+		"voterId": 6
+	}, {
+		"voterId": 2
+	}],
+	"vote_times": 0
+}, {
+	"username": "纲手",
+	"mobile": "18289742007",
+	"descrption": "人因为有难忘的回忆所以才变得坚强",
+	"gender": "girl",
+	"head_icon": "/images/girl.png",
+	"id": 5,
+	"vote": 1,
+	"rank": 5,
+	"vfriend": [{
+		"voterId": 10
+	}],
+	"vote_times": 2,
+	"password": "123"
+}, {
+	"username": "test2",
+	"mobile": "18289742007",
+	"descrption": "hello",
+	"gender": "boy",
+	"head_icon": "/images/boy.png",
+	"id": 7,
+	"vote": 1,
+	"vfriend": [{
+		"voterId": 10
+	}, {
+		"voterId": 6
+	}],
+	"rank": 5,
+	"password": "123",
+	"vote_times": 0
+}, {
+	"username": "test4",
+	"mobile": "18298742007",
+	"descrption": "hello",
+	"gender": "boy",
+	"password": "123",
+	"head_icon": "/images/boy.png",
+	"id": 9,
+	"vote": 1,
+	"rank": 5,
+	"vfriend": [{
+		"voterId": 3
+	}],
+	"vote_times": 2
+}, {
+	"username": "test5",
+	"mobile": "18289742007",
+	"descrption": "hello",
+	"gender": "girl",
+	"password": "123",
+	"head_icon": "/images/girl.png",
+	"id": 10,
+	"vote": 0,
+	"rank": 6,
+	"vote_times": 6,
+	"vfriend": []
+}]
