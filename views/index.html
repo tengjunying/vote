@@ -65,25 +65,35 @@
 	</div>
   <div class="mask">
     <div class="submit_info">
-      <div class="sub_title">
-        <span>请输入用户信息进行验证</span>
+      <div class="no_signed">
+        <div class="sub_title">
+          <span>请输入用户信息进行验证</span>
+        </div>
+        <div class="reitems">
+          <input type="text" class="reinput usernum" placeholder="请填写用户编号">
+        </div>
+        <div class="reitems">
+          <input type="text" class="reinput user_password" placeholder="请填写用户密码">
+        </div>
+        <div class="subbtn">
+          提交
+        </div>
+        <div class="no_info">
+          <a href="/vote/register">
+            <span>没有用户名和编号？</span>
+            <span>请先进行报名</span>
+          </a>
+        </div>
       </div>
-      <div class="reitems">
-        <input type="text" class="reinput usernum" placeholder="请填写用户编号">
-      </div>
-      <div class="reitems">
-        <input type="text" class="reinput user_password" placeholder="请填写用户密码">
-      </div>
-      <div class="rebtn subbtn btn">
-        提交
-      </div>
-      <div class="no_info">
-        <a href="/vote/register">
-          <span>没有用户名和编号？</span>
-          <span>请先进行报名</span>
-        </a>
+      <div class="signed">
+        <p>Welcome!</p>
+        <p class="username">鸣人</p>
+        <div class="dropout">
+          退出登入
+        </div>
       </div>
     </div>
+ 
   </div>
 </body>
 <script src="/javascripts/zepto.min.js"></script>

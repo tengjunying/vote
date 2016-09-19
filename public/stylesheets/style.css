@@ -694,6 +694,7 @@ a {
     margin-top: -90px;
     left: 50%;
     margin-left: -35%;
+    overflow: hidden;
 }
 
 .sub_title {
@@ -719,6 +720,11 @@ a {
     line-height: 25px;
     font-size: 14px;
     margin: 12px auto;
+    border-radius: 30px;
+    color: #fff;
+    text-align: center;
+    background-color: #54ABE8;
+    box-shadow: 0 2px rgba(127, 212, 245, 0.37);
 }
 
 .no_info {
@@ -742,5 +748,31 @@ a {
     font-size: 18px;
     color: #999;
     display: none;
+}
+
+.signed p:first-child{
+    text-align: center;
+    margin: 20px;
+    font-size: 30px;
+    color: #FF5555;
+}
+
+.signed .username{
+    text-align: center;
+    font-size: 22px;
+    margin-bottom: 20px;
+}
+
+.dropout {
+    width: 85px;
+    height: 30px;
+    line-height: 30px;
+    font-size: 14px;
+    text-align: center;
+    color: #fff;
+    margin: 0 auto;
+    border-radius: 20px;
+    background-color: #54ABE8;
+    box-shadow: 0 2px rgba(127, 212, 245, 0.37);
 }
 
