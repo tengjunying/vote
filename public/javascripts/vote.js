@@ -201,43 +201,43 @@ $(document).ready(function($) {
 		passwordDiaplay: function(className) {
 			var passwordReg = /^\**([A-Za-z0-9])$/;
 			var passwordInputs = document.querySelectorAll('.' + className);
+			var currenLength = 0;
 			Array.prototype.forEach.call(passwordInputs, function(el, index) {
-				el.oninput = function() {
+				el.oninput = function(event) {
 					if(this.passwordStr === undefined) {
 						this.passwordStr = ''
 					}
 					if(this.starStr === undefined) {
 						this.starStr = ''
 					}
-					if(this.passwordNum === undefined) {
-						this.passwordNum = 0;
+					if(this.previousLength === undefined) {
+						this.previousLength = 0;
 					}
-					if(event.keyCode == 8) {    //删除键的键盘码
-						if(this.passwordNum === 0) {
-							return false;
-						}
-						this.passwordNum--;
+					currenLength = this.value.split('').length;
+					if(currenLength < this.previousLength) {  
 						this.passwordStr = this.passwordStr.split('');
 						this.passwordStr.length--;
 						this.passwordStr = this.passwordStr.join('');
 						$(this).attr('pword', this.passwordStr);
 						this.starStr = '';
-						for(var i=0; i<this.passwordNum; i++) {
+						for(var i=0; i<currenLength; i++) {
 							this.starStr += '*';
 						}
-						return false;
+					}else if(currenLength === this.previousLength) {
+						console.log('0');
+					}else {
+						if($(this).val()) {
+							this.starStr += '*';
+							if(passwordReg.test($(this).val())) {
+								this.passwordStr += passwordReg.exec($(this).val())[1];
+								$(this).attr('pword', this.passwordStr);
+								$(this).val(this.starStr);
+							}else {
+								alert('密码只能是阿拉伯数字数字或者英文字母');
+							}				
+						}
 					}
-					if($(this).val()) {
-						this.passwordNum++;
-						this.starStr += '*';
-						if(passwordReg.test($(this).val())) {
-							this.passwordStr += passwordReg.exec($(this).val())[1];
-							$(this).attr('pword', this.passwordStr);
-							$(this).val(this.starStr);
-						}else {
-							alert('密码只能是阿拉伯数字数字或者英文字母');
-						}				
-					}
+					this.previousLength = currenLength;
 				}
 			})
 		},
@@ -287,16 +287,32 @@ $(document).ready(function($) {
 				gender: gender,
 				password: password
 			}
+		},
+
+		maskDeal: function() {
+			$('.mask').click(function(event) {
+				voteFn.passwordDiaplay('user_password');
+				if(event.target.className === 'mask') {
+					$('.mask').hide();
+				}
+			});
+		},
+
+		signInAction: function() {
+			$('.sign_in').click(function(event) {
+				$('.mask').show();
+				voteFn.signIn();
+			});
 		}
 	};
 
 	if(indexReg.test(url)) {
 		/*主页*/
 		var voteUser = voteFn.getStorage('voteUser');
-		$('.sign_in').click(function(event) {
-			$('.mask').show();
-			voteFn.signIn();
-		});
+
+		voteFn.maskDeal();
+		voteFn.signInAction();
+
 		if(!voteUser) {
 			/**/
 		}else {
@@ -306,7 +322,6 @@ $(document).ready(function($) {
 				window.location = userDetailUrl;
 			});
 		}
-
 		$.ajax({
 			url: '/vote/index/data?limit=10&offset=0',
 			type: 'GET',
@@ -343,14 +358,6 @@ $(document).ready(function($) {
 		        })
 		    }
 		});
-
-		$('.mask').click(function(event) {
-			voteFn.passwordDiaplay('user_password');
-			if(event.target.className === 'mask') {
-				$('.mask').hide();
-			}
-		});
-
 		$('.search span').click(function(event) {
 			var searchContent = $('.search input').val();
 			voteFn.setStorage('searchContent', searchContent);
@@ -368,7 +375,6 @@ $(document).ready(function($) {
 		$('.gender input').click(function(event) {
 			$(this).attr('select', 'yes').parent('div').siblings('div').children('input').attr('select', 'no'); 
 		});
-
 		$('.rebtn').click(function(event) {
 			if(!rebtnFlag) {
 				return
@@ -404,6 +410,10 @@ $(document).ready(function($) {
 	} else if(searchReg.test(url)) {
 		/*搜索页*/
 		var searchContent = voteFn.getStorage('searchContent');
+
+		voteFn.maskDeal();
+		voteFn.signInAction();
+
 		$.ajax({
 			url: '/vote/index/search?content=' + searchContent,
 			type: 'GET',
@@ -411,6 +421,7 @@ $(document).ready(function($) {
 				data = JSON.parse(data);
 				if(data.data.length) {
 					$('.coming').html(voteFn.userStr(data.data));
+					voteFn.userPoll();
 				}else {
 					$('.nodata').show();
 				}
