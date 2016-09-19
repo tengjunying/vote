@@ -200,44 +200,46 @@ $(document).ready(function($) {
 		 */
 		passwordDiaplay: function(className) {
 			var passwordReg = /^\**([A-Za-z0-9])$/;
-			var passwordInput = document.querySelector('.' + className);
-			passwordInput.oninput = function() {
-				if(this.passwordStr === undefined) {
-					this.passwordStr = ''
-				}
-				if(this.starStr === undefined) {
-					this.starStr = ''
-				}
-				if(this.passwordNum === undefined) {
-					this.passwordNum = 0;
-				}
-				if(event.keyCode == 8) {    //删除键的键盘码
-					if(this.passwordNum === 0) {
+			var passwordInputs = document.querySelectorAll('.' + className);
+			Array.prototype.forEach.call(passwordInputs, function(el, index) {
+				el.oninput = function() {
+					if(this.passwordStr === undefined) {
+						this.passwordStr = ''
+					}
+					if(this.starStr === undefined) {
+						this.starStr = ''
+					}
+					if(this.passwordNum === undefined) {
+						this.passwordNum = 0;
+					}
+					if(event.keyCode == 8) {    //删除键的键盘码
+						if(this.passwordNum === 0) {
+							return false;
+						}
+						this.passwordNum--;
+						this.passwordStr = this.passwordStr.split('');
+						this.passwordStr.length--;
+						this.passwordStr = this.passwordStr.join('');
+						$(this).attr('pword', this.passwordStr);
+						this.starStr = '';
+						for(var i=0; i<this.passwordNum; i++) {
+							this.starStr += '*';
+						}
 						return false;
 					}
-					this.passwordNum--;
-					this.passwordStr = this.passwordStr.split('');
-					this.passwordStr.length--;
-					this.passwordStr = this.passwordStr.join('');
-					$(this).attr('pword', this.passwordStr);
-					this.starStr = '';
-					for(var i=0; i<this.passwordNum; i++) {
+					if($(this).val()) {
+						this.passwordNum++;
 						this.starStr += '*';
+						if(passwordReg.test($(this).val())) {
+							this.passwordStr += passwordReg.exec($(this).val())[1];
+							$(this).attr('pword', this.passwordStr);
+							$(this).val(this.starStr);
+						}else {
+							alert('密码只能是阿拉伯数字数字或者英文字母');
+						}				
 					}
-					return false;
 				}
-				if($(this).val()) {
-					this.passwordNum++;
-					this.starStr += '*';
-					if(passwordReg.test($(this).val())) {
-						this.passwordStr += passwordReg.exec($(this).val())[1];
-						$(this).attr('pword', this.passwordStr);
-						$(this).val(this.starStr);
-					}else {
-						alert('密码只能是阿拉伯数字数字或者英文字母');
-					}				
-				}
-			}
+			})
 		},
 
 		/**
