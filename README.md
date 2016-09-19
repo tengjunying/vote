@@ -93,9 +93,9 @@
 	method: POST
 	url: /vote/index/info
 	sendData:  {
-					password: {用户密码},
-					id: ｛用户编号｝
-				}
+				   password: {用户密码},
+			       id: ｛用户编号｝
+			   }
 	返回数据：errno为0，数据正确		
 	```
 	- 搜索页搜索内容
