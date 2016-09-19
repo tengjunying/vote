@@ -9,30 +9,30 @@
 
 ![Mou icon](./index.jpg)
 
----
+
 
 报名页
 
 ![Mou icon](./register.jpg)
 
----
+
 
 个人主页
 
 ![Mou icon](./detail.jpg)
 
----
+
 
 搜索页
 
 ![Mou icon](./search.jpg)
 
----
+
 规则页
 
 ![Mou icon](./rule.jpg)
 
----
+
 
 ## 运行项目
 
@@ -53,7 +53,6 @@
 ```
 执行完`npm run start`命令后，打开浏览器 `http://localhost:8080/vote/index`运行项目访问项目
 
----
 
 ## 项目说明
 
