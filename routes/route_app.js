@@ -135,7 +135,8 @@ exports.index_info = (req, res) => {
         sendData.errno = -1;
         sendData.msg = '您输入的用户名或者密码不正确';
     }
-    res.send(JSON.stringify(sendData));
+    sendData.user = dealFn.getItem(+registerData.id, database.data.objects)
+    res.send(JSON.stringify(sendData));   
 };
 
 exports.index_search = (req, res) => {

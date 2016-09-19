@@ -28,6 +28,14 @@ $(document).ready(function($) {
 		},
 
 		/**
+		 * [删除本地存储数据]
+		 * @param {String} key [键值］
+		 */
+		delteStorage: function(key) {
+			localStorage.removeItem(key);
+		},
+
+		/**
 		 * [拼接首页用户信息字符串]
 		 * @param  {Array} objs [用户信息数组]
 		 * @return {String}     [用户信息字符串]
@@ -165,7 +173,9 @@ $(document).ready(function($) {
 					success: function(data) {
 						data = JSON.parse(data);
 						if(data.errno === 0) {
+							voteUser.username = data.user.username;
 							voteFn.setStorage('voteUser', voteUser);
+							alert('登入成功');
 							window.location = url;
 						} else {
 							alert(data.msg);
@@ -307,6 +317,16 @@ $(document).ready(function($) {
 		signInAction: function() {
 			$('.sign_in').click(function(event) {
 				$('.mask').show();
+				var voteUser = voteFn.getStorage('voteUser');
+				if(voteUser) {
+					$('.no_signed').hide();
+					$('.signed .username').html(voteUser.username);
+					$('.signed .dropout').click(function(event) {
+						voteFn.delteStorage('voteUser');
+						window.location = url;
+					});
+					return false;
+				}
 				voteFn.signIn();
 			});
 		}
@@ -400,6 +420,7 @@ $(document).ready(function($) {
 						var id = data.id;
 						var reg = /(.*)register/;
 						var voteUser = {
+							username: registerData.username,
 							password: registerData.password,
 							id: id
 						}
