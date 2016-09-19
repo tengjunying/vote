@@ -120,7 +120,7 @@
      * @param  见Load函数描述
      * @return 加载
      */
-    window.dropLoad = function(option) {
+    window.loadMore = function(option) {
         return new Load(option);
     } 
 
