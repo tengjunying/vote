@@ -289,6 +289,9 @@ $(document).ready(function($) {
 			}
 		},
 
+		/**
+		 * [登入遮罩层事件绑定]
+		 */
 		maskDeal: function() {
 			$('.mask').click(function(event) {
 				voteFn.passwordDiaplay('user_password');
@@ -298,6 +301,9 @@ $(document).ready(function($) {
 			});
 		},
 
+		/**
+		 * [提交登入信息事件绑定]
+		 */
 		signInAction: function() {
 			$('.sign_in').click(function(event) {
 				$('.mask').show();
@@ -332,7 +338,7 @@ $(document).ready(function($) {
 				voteFn.userPoll();
 			}
 		});
-		dropLoad({       
+		loadMore({       
 			callback: function(load){
 		        $.ajax({
 		            url: '/vote/index/data?limit=' + limit + '&offset=' + offset,

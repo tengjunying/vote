@@ -3,7 +3,6 @@ let router = express.Router();
 let fs = require('fs');
 let url = require('url');
 let iconv = require('iconv-lite');   
-let EventEmitter = require('events').EventEmitter;
 let dealFn = require('./dealfn.js');
 
 let database = null;
