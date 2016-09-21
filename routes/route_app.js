@@ -11,6 +11,16 @@ let maxVoteTimes = 5;
 dealFn.readFileData('database.json').then((data) => {
     database = data;
     database.data.total = database.data.objects.length;
+    // for(var i=0; i<database.data.objects.length; i++) {
+    //     console.log('dddd')
+    //     console.log(database.data.objects[i].vfriend.length)
+    // }
+    // database.data.objects = [];
+    // dealFn.writeFileData('database.json', database).then((msg) => {
+    //     console.log(msg);
+    // }, (msg) => {
+    //     console.log(msg);
+    // });
 }, (msg) => {
     console.log(msg);
 })
@@ -66,7 +76,6 @@ exports.index_poll = (req, res) => {
         },
         pollUser = dealFn.getItem(id, database.data.objects),
         voter = dealFn.getItem(voterId, database.data.objects);
-
     for(let i=0; i<pollUser.vfriend.length; i++) {
         if(pollUser.vfriend[i].id === voterId) {
             sendData.errno = '-1';
@@ -75,9 +84,30 @@ exports.index_poll = (req, res) => {
             return;
         }
     }
-    voter.time = Date.parse(new Date());
-    pollUser.vfriend.push(voter);
-    voter.vote_times++;
+    if(id === voterId) { 
+        pollUser.vote_times++;
+        let ownObj =  {
+                "username": pollUser.username,
+                "mobile": pollUser.mobile,
+                "descrption": pollUser.descrption,
+                "gender": pollUser.gender,
+                "password": pollUser.password,
+                "head_icon": pollUser.head_icon,
+                "id": pollUser.id,
+                "vote": pollUser.vote,
+                "rank": pollUser.rank,
+                "vote_times": pollUser.vote_times,
+                "vfriend": [],
+                "time": Date.parse(new Date())
+            }
+        pollUser.vfriend.push(ownObj);
+        console.log(pollUser)
+    }else {
+        voter.time = Date.parse(new Date());
+        voter.vfriend = [];
+        pollUser.vfriend.push(voter);
+        voter.vote_times++;
+    }
     if(voter.vote_times > maxVoteTimes) {
         sendData.errno = '-2';
         sendData.msg = '每个人最多能投5票，您已经使用完了';
@@ -112,7 +142,6 @@ exports.register_data = (req, res) => {
     }, (msg) => {
         console.log(msg);
     });
-
     sendData = {
         errno: 0,
         msg: '报名成功，您的用户编号为' + registerData.id + '（用于登入验证）,请妥善保管！',
