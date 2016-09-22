@@ -11,16 +11,6 @@ let maxVoteTimes = 5;
 dealFn.readFileData('database.json').then((data) => {
     database = data;
     database.data.total = database.data.objects.length;
-    // for(var i=0; i<database.data.objects.length; i++) {
-    //     console.log('dddd')
-    //     console.log(database.data.objects[i].vfriend.length)
-    // }
-    // database.data.objects = [];
-    // dealFn.writeFileData('database.json', database).then((msg) => {
-    //     console.log(msg);
-    // }, (msg) => {
-    //     console.log(msg);
-    // });
 }, (msg) => {
     console.log(msg);
 })
@@ -69,6 +59,7 @@ exports.index_data = (req, res) => {
 exports.index_poll = (req, res) => {
     let query = url.parse(req.url, true).query,
         id = +query.id,
+        ownObj = {},
         voterId = +query.voterId,
             sendData = {
             errno: 0,
@@ -84,36 +75,14 @@ exports.index_poll = (req, res) => {
             return;
         }
     }
-    if(id === voterId) { 
-        pollUser.vote_times++;
-        let ownObj =  {
-                "username": pollUser.username,
-                "mobile": pollUser.mobile,
-                "descrption": pollUser.descrption,
-                "gender": pollUser.gender,
-                "password": pollUser.password,
-                "head_icon": pollUser.head_icon,
-                "id": pollUser.id,
-                "vote": pollUser.vote,
-                "rank": pollUser.rank,
-                "vote_times": pollUser.vote_times,
-                "vfriend": [],
-                "time": Date.parse(new Date())
-            }
-        pollUser.vfriend.push(ownObj);
-        console.log(pollUser)
-    }else {
-        voter.time = Date.parse(new Date());
-        voter.vfriend = [];
-        pollUser.vfriend.push(voter);
-        voter.vote_times++;
-    }
     if(voter.vote_times > maxVoteTimes) {
         sendData.errno = '-2';
         sendData.msg = '每个人最多能投5票，您已经使用完了';
         res.send(JSON.stringify(sendData));
         return;
     }
+    ownObj = dealFn.cloneUser(voter);
+    pollUser.vfriend.push(ownObj);
     pollUser.vote++;
     database.data.objects = dealFn.sortRank(database.data.objects);
     dealFn.writeFileData('database.json', database).then((msg) => {

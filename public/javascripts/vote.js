@@ -408,6 +408,7 @@ $(document).ready(function($) {
 			rebtnFlag = false;
 			var registerData = voteFn.getRegisterData();
 			if(registerData == false) {
+				rebtnFlag = true;
 				return;
 			}
 			$.ajax({

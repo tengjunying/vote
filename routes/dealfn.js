@@ -113,6 +113,23 @@ let dealFn = {
 			}
 		}
 		return searchResult;
+	},
+
+	cloneUser: (obj) => {
+		return {
+            "username": obj.username,
+            "mobile": obj.mobile,
+            "descrption": obj.descrption,
+            "gender": obj.gender,
+            "password": obj.password,
+            "head_icon": obj.head_icon,
+            "id": obj.id,
+            "vote": obj.vote,
+            "rank": obj.rank,
+            "vote_times": ++obj.vote_times,
+            "vfriend": [],
+            "time": Date.parse(new Date())
+        }
 	}
 }
 
